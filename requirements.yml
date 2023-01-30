@@ -1,6 +1,7 @@
 name: CNN
 channels:
   - defaults
+  - conda-forge
 dependencies:
   - pip
   - pre-commit
@@ -17,3 +18,7 @@ dependencies:
   - python=3.8
   - tensorflow
   - xarray
+  - ipykernel
+  - python-cdo
+  - dask
+  - prefect
