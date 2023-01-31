@@ -10,3 +10,6 @@ __pycache__/
 
 # Data Files
 *.nc
+
+#folders
+data
