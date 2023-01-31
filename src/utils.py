@@ -46,3 +46,31 @@ def gen_absolute_path_and_filename(filename_dict: dict, init_path:str, init_file
 
     
     return absolute_path, absolute_filename
+
+
+def add_processing_step(inp_file_dict: dict, processing_str: str, init_path: str, init_filestem: str, filetype:str) ->Union[str,dict]:
+    """This functions adds a processing step to the file dictionary creates the new output path for the file and returns the filename and path for the output file
+
+    Args:
+        inp_file_dict (dict): Input file dictionary. 
+        processing_str (str): String that describes the processing step and is appended to the already existing processing string
+        init_path (str): String of the init path that is added to the relative path created from the inp_file_dict
+        init_filestem (str): String of the filestem that is prepended to the relative filesteam created from the inp_file_dict
+        filetype (str): String describing the filetype
+
+    Returns:
+        Union[str,dict]: output file and dictionary
+    """
+
+    
+    out_file_dict = inp_file_dict.copy()
+    if "processing" not in inp_file_dict.keys():
+        out_file_dict["processing"] = processing_str
+    else:
+        out_file_dict["processing"] = "_".join([out_file_dict["processing"], processing_str])
+
+    path, filename = gen_absolute_path_and_filename(out_file_dict, init_path = init_path, init_filestem = init_filestem, filetype=filetype)
+    os.makedirs(path, exist_ok=True)
+    out_file = os.path.join(path, filename)
+
+    return out_file, out_file_dict

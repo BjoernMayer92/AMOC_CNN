@@ -46,6 +46,7 @@ dependencies:
   - ca-certificates=2023.01.10=h06a4308_0
   - cached-property=1.5.2=py_0
   - cachetools=4.2.2=pyhd3eb1b0_0
+  - cartopy=0.21.1=py38h1176785_0
   - cdo=1.9.10=h8dabf4c_1
   - certifi=2022.12.7=py38h06a4308_0
   - cffi=1.15.1=py38h5eee18b_3
@@ -96,6 +97,7 @@ dependencies:
   - fsspec=2022.11.0=py38h06a4308_0
   - future=0.18.2=py38_1
   - gast=0.4.0=pyhd3eb1b0_0
+  - geos=3.8.0=he6710b0_0
   - giflib=5.2.1=h5eee18b_1
   - glib=2.69.1=he621ea3_2
   - google-auth=2.6.0=pyhd3eb1b0_0
@@ -267,9 +269,11 @@ dependencies:
   - pyjwt=2.4.0=py38h06a4308_0
   - pyopenssl=22.0.0=pyhd3eb1b0_0
   - pyparsing=3.0.9=py38h06a4308_0
+  - pyproj=3.3.1=py38ha39a3f3_0
   - pyqt=5.15.7=py38h6a678d5_1
   - pyqt5-sip=12.11.0=py38h6a678d5_1
   - pyrsistent=0.18.0=py38heee7806_0
+  - pyshp=2.1.3=pyhd3eb1b0_0
   - pysocks=1.7.1=py38h06a4308_0
   - pytest=7.1.2=py38h06a4308_0
   - python=3.8.16=h7a1cb2a_2
@@ -302,6 +306,7 @@ dependencies:
   - scipy=1.9.3=py38h14f4228_0
   - send2trash=1.8.0=pyhd3eb1b0_1
   - setuptools=65.6.3=py38h06a4308_0
+  - shapely=1.8.4=py38h81ba7c5_0
   - shellingham=1.5.0=py38h06a4308_0
   - sip=6.6.2=py38h6a678d5_0
   - six=1.16.0=pyhd3eb1b0_1
