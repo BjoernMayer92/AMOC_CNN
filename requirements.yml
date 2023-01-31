@@ -22,3 +22,4 @@ dependencies:
   - python-cdo
   - dask
   - prefect
+  - netcdf4
