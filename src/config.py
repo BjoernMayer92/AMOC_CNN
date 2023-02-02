@@ -9,7 +9,7 @@ import os
 
 
 # Paths
-proj_path = os.path.abspath(Path(__file__).parent.resolve())
+proj_path = os.path.abspath(Path(__file__).parents[1].resolve())
 
 data_path = os.path.join(proj_path, "data")
 
@@ -24,3 +24,6 @@ src_path = os.path.join(proj_path, "src")
 
 # Basin File
 basin_file = os.path.join(data_ext_path, "GR15_basin.nc")
+
+if __name__=="__main__":
+    print(proj_path)
