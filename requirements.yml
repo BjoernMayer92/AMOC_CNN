@@ -2,8 +2,10 @@ name: CNN
 channels:
   - defaults
   - conda-forge
+  - pytorch
 dependencies:
-  - pip
+  - pip:
+    - -e . 
   - pre-commit
   - setuptools
   - pytest
@@ -24,3 +26,4 @@ dependencies:
   - prefect
   - netcdf4
   - cartopy
+  - pytorch
