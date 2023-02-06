@@ -27,3 +27,4 @@ dependencies:
   - netcdf4
   - cartopy
   - pytorch
+  - tqdm 
