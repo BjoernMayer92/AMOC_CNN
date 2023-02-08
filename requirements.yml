@@ -6,6 +6,10 @@ channels:
 dependencies:
   - pip:
     - -e . 
+    - zennit
+    - nni
+    - innvestigate
+    - torchsummary
   - pre-commit
   - setuptools
   - pytest
