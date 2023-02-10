@@ -162,7 +162,6 @@ dependencies:
   - libbrotlicommon=1.0.9=h5eee18b_7
   - libbrotlidec=1.0.9=h5eee18b_7
   - libbrotlienc=1.0.9=h5eee18b_7
-  - libclang=10.0.1=default_hb85057a_2
   - libcurl=7.87.0=h91b91d3_0
   - libdeflate=1.8=h7f8727e_5
   - libedit=3.1.20221030=h5eee18b_0
@@ -256,7 +255,6 @@ dependencies:
   - prometheus_client=0.14.1=py38h06a4308_0
   - prompt-toolkit=3.0.36=py38h06a4308_0
   - prompt_toolkit=3.0.36=hd3eb1b0_0
-  - protobuf=3.20.1=py38h295c915_0
   - psutil=5.9.0=py38h5eee18b_0
   - ptyprocess=0.7.0=pyhd3eb1b0_2
   - pure_eval=0.2.2=pyhd3eb1b0_0
@@ -377,17 +375,21 @@ dependencies:
   - pip:
       - astor==0.8.1
       - contextlib2==21.6.0
+      - innvestigate==2.0.2
       - json-tricks==3.16.1
+      - libclang==15.0.6.1
       - nni==2.10
       - nvidia-cublas-cu11==11.10.3.66
       - nvidia-cuda-nvrtc-cu11==11.7.99
       - nvidia-cuda-runtime-cu11==11.7.99
       - nvidia-cudnn-cu11==8.5.0.96
       - prettytable==3.6.0
+      - protobuf==3.19.6
       - pythonwebhdfs==0.2.3
       - responses==0.22.0
       - schema==0.7.5
       - simplejson==3.18.3
+      - tensorflow-io-gcs-filesystem==0.30.0
       - torch==1.13.1
       - torchsummary==1.5.1
       - torchvision==0.14.1
