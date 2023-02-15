@@ -20,6 +20,7 @@ data_ext_path = os.path.join(data_path, "external")
 
 src_path = os.path.join(proj_path, "src")
 
+model_path = os.path.join(proj_path, "models")
 
 
 # Basin File
