@@ -1,8 +1,9 @@
-"This scripts defines the preprocessing flow for the data"
+#!/usr/bin/env python
+# coding: utf-8
 
-import xarray as xr
-import os
-from cdo import Cdo
+# # 1 Import Packages
+
+# In[73]:
 
 
 import xarray as xr
@@ -14,38 +15,76 @@ import matplotlib.pyplot as plt
 import numpy as np
 import logging
 
-logging.basicConfig(level=logging.INFO)
-
-tempdir = ":/tmp"
-os.makedirs(tempdir, exist_ok=True)
-cdo = Cdo(tempdir = tempdir )
+from prefect import Flow, task, flow
 
 
-import src.config as config
-import src.utils as utils
+# In[67]:
 
 
+cdo = Cdo()
 
-def gen_filename_list(filename_dict):    
+
+# # 2 Metadata
+
+# In[68]:
+
+
+sys.path.append(os.path.abspath(Path().resolve().parents[1]))
+sys.path.append(os.path.abspath(Path().resolve().parents[0]))
+
+import config
+import utils as utils
+
+
+# In[71]:
+
+
+experiment_family = "GrandEnsemble"
+experiment = "hist"
+realization = "lkm0001"
+
+filename_dict = {}
+
+filename_dict["experiment_family"] = experiment_family
+filename_dict["experiment"] = experiment
+filename_dict["realization"] = realization
+
+
+# # 3 Develop Preprocessing Functions
+
+# In[74]:
+
+
+@task
+def gen_filename_list(filename_dict):
     if filename_dict["experiment_family"]=="GrandEnsemble":
         path = os.path.join(config.data_raw_path, filename_dict["experiment_family"], filename_dict["experiment"], filename_dict["realization"])
-      
-        logging.info("Reading Files from path: {} ".format(path))
         filename_template = "_".join([filename_dict["realization"],filename_dict["experiment"],"mpiom", "data", "3d", "mm"])+"*.nc"
-        logging.info("Searching for files with the template: {} ".format(filename_template))
-
+        
         filename_list = glob.glob(os.path.join(path, filename_template))
-        logging.info("Reading Files from path: {} ".format(len(filename_list)))
-
+        
         return filename_list
 
 
+# filename_list = gen_filename_list(filename_dict)
+
+# In[75]:
+
+
+@task
 def cal_merge_time(file_list:list, inp_file_dict:dict): 
     out_file, out_file_dict = utils.add_processing_step(inp_file_dict = inp_file_dict, processing_str ="mergetime", init_path = config.data_pro_path, init_filestem = "", filetype ="nc")
+
     cdo.mergetime(input = " ".join(file_list), output= out_file)
     return out_file, out_file_dict
 
 
+# merge_file, merge_dict = cal_merge_time(filename_list[:2], filename_dict)
+
+# In[ ]:
+
+
+@task
 def cal_density(inp_file, inp_file_dict):
 
     out_file, out_file_dict = utils.add_processing_step(inp_file_dict, processing_str = "rho", init_path=config.data_pro_path, init_filestem="",filetype="nc")
@@ -55,6 +94,12 @@ def cal_density(inp_file, inp_file_dict):
     return out_file, out_file_dict
 
 
+# merge_rho_file, merge_rho_dict = cal_density(merge_file, merge_dict)
+
+# In[ ]:
+
+
+@task
 def cal_remap(inp_file, inp_file_dict):
     out_file, out_file_dict = utils.add_processing_step(inp_file_dict, processing_str="remap", init_path= config.data_pro_path, init_filestem="", filetype="nc")
 
@@ -63,6 +108,12 @@ def cal_remap(inp_file, inp_file_dict):
     return out_file, out_file_dict
 
 
+# merge_rho_remap_file, merge_rho_remap_file_dict = cal_remap(merge_rho_file, merge_rho_dict)
+
+# In[ ]:
+
+
+@task
 def cal_mask_and_crop(inp_file, inp_file_dict, mask_file, lon_min, lon_max, lat_min, lat_max):
     out_file, out_file_dict = utils.add_processing_step(inp_file_dict, processing_str="masked", init_path = config.data_pro_path, init_filestem="", filetype="nc")
     data_lonlatbox_file = cdo.sellonlatbox("{},{},{},{}".format(lon_min, lon_max, lat_min, lat_max),input = inp_file)
@@ -72,6 +123,27 @@ def cal_mask_and_crop(inp_file, inp_file_dict, mask_file, lon_min, lon_max, lat_
     return out_file, out_file_dict
 
 
+# In[ ]:
+
+
+mask_filename = "_".join(["mask", "atlantic", "r360x180"])+".nc"
+
+mask_file = os.path.join(config.data_pro_path, "basin", "r360x180",mask_filename)
+
+lat_min = -30
+lat_max = 90
+
+lon_min=250
+lon_max= 10
+
+
+# merge_rho_remap_masked_file, merge_rho_remap_masked_file_dict = cal_mask_and_crop(merge_rho_remap_file, merge_rho_remap_file_dict, mask_file = mask_file, lon_min = lon_min, lon_max= lon_max, lat_min=lat_min, lat_max=lat_max)
+# 
+
+# In[ ]:
+
+
+@task
 def cal_yearly_means(inp_file, inp_file_dict):
     
     out_file, out_file_dict = utils.add_processing_step(inp_file_dict, processing_str = "ym", init_path=config.data_pro_path, init_filestem="",filetype="nc")
@@ -81,21 +153,14 @@ def cal_yearly_means(inp_file, inp_file_dict):
     return out_file, out_file_dict
 
 
+# merge_rho_remap_masked_ym_file, merge_rho_remap_masked_ym_file_dict = cal_yearly_means(merge_rho_remap_masked_file, merge_rho_remap_masked_file_dict)
+# 
 
-def run_realization(filename_dict, mask_file, lon_min, lon_max, lat_min, lat_max):
-
-    filename_list = gen_filename_list(filename_dict)
-    merge_file, merge_dict = cal_merge_time(filename_list, filename_dict)
-    merge_rho_file, merge_rho_dict = cal_density(merge_file, merge_dict)
-    merge_rho_remap_file, merge_rho_remap_file_dict = cal_remap(merge_rho_file, merge_rho_dict)
-    merge_rho_remap_masked_file, merge_rho_remap_masked_file_dict = cal_mask_and_crop(merge_rho_remap_file, merge_rho_remap_file_dict, mask_file = mask_file, lon_min = lon_min, lon_max= lon_max, lat_min=lat_min, lat_max=lat_max)
-    merge_rho_remap_masked_ym_file, merge_rho_remap_masked_ym_file_dict = cal_yearly_means(merge_rho_remap_masked_file, merge_rho_remap_masked_file_dict)
+# In[ ]:
 
 
-
-
-
-def run_experiment():
+@flow
+def test_pipeline():
     mask_filename = "_".join(["mask", "atlantic", "r360x180"])+".nc"
     mask_file = os.path.join(config.data_pro_path, "basin", "r360x180",mask_filename)
 
@@ -107,19 +172,30 @@ def run_experiment():
 
     experiment_family = "GrandEnsemble"
     experiment = "hist"
+    realization = "lkm0001"
+
+    filename_dict = {}
+
+    filename_dict["experiment_family"] = experiment_family
+    filename_dict["experiment"] = experiment
+    filename_dict["realization"] = realization
+
+    filename_list = gen_filename_list(filename_dict)
+    merge_file, merge_dict = cal_merge_time(filename_list, filename_dict)
+    merge_rho_file, merge_rho_dict = cal_density(merge_file, merge_dict)
+    merge_rho_remap_file, merge_rho_remap_file_dict = cal_remap(merge_rho_file, merge_rho_dict)
+    merge_rho_remap_masked_file, merge_rho_remap_masked_file_dict = cal_mask_and_crop(merge_rho_remap_file, merge_rho_remap_file_dict, mask_file = mask_file, lon_min = lon_min, lon_max= lon_max, lat_min=lat_min, lat_max=lat_max)
+    merge_rho_remap_masked_ym_file, merge_rho_remap_masked_ym_file_dict = cal_yearly_means(merge_rho_remap_masked_file, merge_rho_remap_masked_file_dict)
 
 
-    for i, realization_id in enumerate(np.arange(1,101)):
-        realization = "lkm" + str(realization_id).zfill(4)
-        
-
-        filename_dict = {}
-        filename_dict["experiment_family"] = experiment_family
-        filename_dict["experiment"] = experiment
-        filename_dict["realization"] = realization
+# In[ ]:
 
 
-        run_realization(filename_dict,  mask_file, lon_min, lon_max, lat_min, lat_max)
+test_pipeline()
 
-run_experiment()
+
+# In[ ]:
+
+
+
 

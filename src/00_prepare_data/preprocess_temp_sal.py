@@ -16,9 +16,9 @@ import logging
 
 logging.basicConfig(level=logging.INFO)
 
-tempdir = ":/tmp"
+tempdir = "./tmp"
 os.makedirs(tempdir, exist_ok=True)
-cdo = Cdo(tempdir = tempdir )
+cdo = Cdo(tempdir =tempdir )
 
 
 import src.config as config
@@ -50,7 +50,12 @@ def cal_density(inp_file, inp_file_dict):
 
     out_file, out_file_dict = utils.add_processing_step(inp_file_dict, processing_str = "rho", init_path=config.data_pro_path, init_filestem="",filetype="nc")
     
-    cdo.setname("rho", input= "-rhopot -adisit {}".format(inp_file), output= out_file)
+    tem_file = cdo.adisit(input=inp_file)
+    rho_file = cdo.rhopot(input=tem_file) 
+
+    merg_file = cdo.merge(input="{} {}".format(tem_file, rho_file))
+    
+    cdo.chname("rhopoto,rho", input= merg_file, output= out_file)
 
     return out_file, out_file_dict
 
@@ -109,7 +114,7 @@ def run_experiment():
     experiment = "hist"
 
 
-    for i, realization_id in enumerate(np.arange(1,101)):
+    for i, realization_id in enumerate(np.arange(2,3)):
         realization = "lkm" + str(realization_id).zfill(4)
         
 
