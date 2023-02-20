@@ -32,3 +32,4 @@ dependencies:
   - cartopy
   - pytorch
   - tqdm 
+  - papermill
