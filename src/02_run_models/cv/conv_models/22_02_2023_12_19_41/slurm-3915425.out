@@ -1,0 +1,76 @@
+
+CommandNotFoundError: Your shell has not been properly configured to use 'conda activate'.
+To initialize your shell, run
+
+    $ conda init <SHELL_NAME>
+
+Currently supported shells are:
+  - bash
+  - fish
+  - tcsh
+  - xonsh
+  - zsh
+  - powershell
+
+See 'conda init --help' for more information and options.
+
+IMPORTANT: You may need to close and restart your shell after running 'conda init'.
+
+
+[NbConvertApp] Converting notebook cv_conv_model_lev_23_kfold_6.ipynb to notebook
+2023-02-22 16:04:50.172218: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-02-22 16:06:07.961324: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-02-22 16:06:08.036964: I tensorflow/core/common_runtime/process_util.cc:146] Creating new thread pool with default inter op setting: 2. Tune using inter_op_parallelism_threads for best performance.
+2023-02-22 16:06:08.074281: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:354] MLIR V1 optimization pass is not enabled
+2023-02-22 16:06:09.313439: I tensorflow/core/profiler/lib/profiler_session.cc:101] Profiler session initializing.
+2023-02-22 16:06:09.313490: I tensorflow/core/profiler/lib/profiler_session.cc:116] Profiler session started.
+2023-02-22 16:06:09.984721: I tensorflow/core/profiler/lib/profiler_session.cc:67] Profiler session collecting data.
+2023-02-22 16:06:09.986452: I tensorflow/core/profiler/lib/profiler_session.cc:128] Profiler session tear down.
+2023-02-22 16:06:10.078837: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: /work/uo1075/u301101/Doktorarbeit/CNN/models/cv/22_02_2023_12_19_41/conv_level_23_kfold_6_date_22_02_2023_12_19_41/logs/conv_level_23_kfold_6_date_22_02_2023_12_19_41/plugins/profile/2023_02_22_16_06_10
+
+2023-02-22 16:06:10.080957: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for trace.json.gz to /work/uo1075/u301101/Doktorarbeit/CNN/models/cv/22_02_2023_12_19_41/conv_level_23_kfold_6_date_22_02_2023_12_19_41/logs/conv_level_23_kfold_6_date_22_02_2023_12_19_41/plugins/profile/2023_02_22_16_06_10/l30776.lvt.dkrz.de.trace.json.gz
+2023-02-22 16:06:10.098193: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: /work/uo1075/u301101/Doktorarbeit/CNN/models/cv/22_02_2023_12_19_41/conv_level_23_kfold_6_date_22_02_2023_12_19_41/logs/conv_level_23_kfold_6_date_22_02_2023_12_19_41/plugins/profile/2023_02_22_16_06_10
+
+2023-02-22 16:06:10.100033: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for memory_profile.json.gz to /work/uo1075/u301101/Doktorarbeit/CNN/models/cv/22_02_2023_12_19_41/conv_level_23_kfold_6_date_22_02_2023_12_19_41/logs/conv_level_23_kfold_6_date_22_02_2023_12_19_41/plugins/profile/2023_02_22_16_06_10/l30776.lvt.dkrz.de.memory_profile.json.gz
+2023-02-22 16:06:10.136348: I tensorflow/core/profiler/rpc/client/capture_profile.cc:251] Creating directory: /work/uo1075/u301101/Doktorarbeit/CNN/models/cv/22_02_2023_12_19_41/conv_level_23_kfold_6_date_22_02_2023_12_19_41/logs/conv_level_23_kfold_6_date_22_02_2023_12_19_41/plugins/profile/2023_02_22_16_06_10
+Dumped tool data for xplane.pb to /work/uo1075/u301101/Doktorarbeit/CNN/models/cv/22_02_2023_12_19_41/conv_level_23_kfold_6_date_22_02_2023_12_19_41/logs/conv_level_23_kfold_6_date_22_02_2023_12_19_41/plugins/profile/2023_02_22_16_06_10/l30776.lvt.dkrz.de.xplane.pb
+Dumped tool data for overview_page.pb to /work/uo1075/u301101/Doktorarbeit/CNN/models/cv/22_02_2023_12_19_41/conv_level_23_kfold_6_date_22_02_2023_12_19_41/logs/conv_level_23_kfold_6_date_22_02_2023_12_19_41/plugins/profile/2023_02_22_16_06_10/l30776.lvt.dkrz.de.overview_page.pb
+Dumped tool data for input_pipeline.pb to /work/uo1075/u301101/Doktorarbeit/CNN/models/cv/22_02_2023_12_19_41/conv_level_23_kfold_6_date_22_02_2023_12_19_41/logs/conv_level_23_kfold_6_date_22_02_2023_12_19_41/plugins/profile/2023_02_22_16_06_10/l30776.lvt.dkrz.de.input_pipeline.pb
+Dumped tool data for tensorflow_stats.pb to /work/uo1075/u301101/Doktorarbeit/CNN/models/cv/22_02_2023_12_19_41/conv_level_23_kfold_6_date_22_02_2023_12_19_41/logs/conv_level_23_kfold_6_date_22_02_2023_12_19_41/plugins/profile/2023_02_22_16_06_10/l30776.lvt.dkrz.de.tensorflow_stats.pb
+Dumped tool data for kernel_stats.pb to /work/uo1075/u301101/Doktorarbeit/CNN/models/cv/22_02_2023_12_19_41/conv_level_23_kfold_6_date_22_02_2023_12_19_41/logs/conv_level_23_kfold_6_date_22_02_2023_12_19_41/plugins/profile/2023_02_22_16_06_10/l30776.lvt.dkrz.de.kernel_stats.pb
+
+slurmstepd: error: *** JOB 3915425 ON l30776 CANCELLED AT 2023-02-22T16:45:27 ***
+
+********************************************************************************
+*                                                                              *
+*  This is the automated job summary provided by DKRZ.                         *
+*  If you encounter problems, need assistance or have any suggestion, please   *
+*  write an email to                                                           *
+*                                                                              *
+*  --  support@dkrz.de --                                                      *
+*                                                                              *
+*                       We hope you enjoyed the DKRZ supercomputer LEVANTE ... *
+*
+* JobID            : 3915425
+* JobName          : sbatch                                            
+* Account          : uo1075
+* User             : u301101 (100141), u300 (32013)                    
+* Partition        : compute
+* QOS              : normal
+* Nodelist         : l30776 (1)                                                
+* Submit date      : 2023-02-22T16:02:15
+* Start time       : 2023-02-22T16:02:29
+* End time         : 2023-02-22T16:45:27
+* Elapsed time     : 00:42:58 (Timelimit=08:00:00)                     
+* Command          : (null)
+* WorkDir          : /work/uo1075/u301101/Doktorarbeit/CNN/src/02_run_models/cv/
+*                    conv_models/22_02_2023_12_19_41
+*
+* StepID | JobName      NodeHours    MaxRSS [Byte] (@task)
+* ------------------------------------------------------------------------------
+* batch  | batch             0.72
+* extern | extern            0.72                2416K (0)
+* ------------------------------------------------------------------------------
+
