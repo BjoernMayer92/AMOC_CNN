@@ -1,0 +1,25 @@
+[NbConvertApp] Converting notebook cv_conv_model_lev_0_kfold_6.ipynb to notebook
+2023-02-24 14:08:49.600335: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-02-24 14:08:59.080399: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-02-24 14:08:59.105900: I tensorflow/core/common_runtime/process_util.cc:146] Creating new thread pool with default inter op setting: 2. Tune using inter_op_parallelism_threads for best performance.
+2023-02-24 14:08:59.122997: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:354] MLIR V1 optimization pass is not enabled
+2023-02-24 14:09:00.844603: I tensorflow/core/profiler/lib/profiler_session.cc:101] Profiler session initializing.
+2023-02-24 14:09:00.844651: I tensorflow/core/profiler/lib/profiler_session.cc:116] Profiler session started.
+2023-02-24 14:09:01.840971: I tensorflow/core/profiler/lib/profiler_session.cc:67] Profiler session collecting data.
+2023-02-24 14:09:01.842976: I tensorflow/core/profiler/lib/profiler_session.cc:128] Profiler session tear down.
+2023-02-24 14:09:01.859759: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: /work/uo1075/u301101/Doktorarbeit/CNN/models/cv/24_02_2023_14_00_52/conv_level_0_kfold_6_date_24_02_2023_14_00_52/logs/conv_level_0_kfold_6_date_24_02_2023_14_00_52/plugins/profile/2023_02_24_14_09_01
+
+2023-02-24 14:09:01.863622: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for trace.json.gz to /work/uo1075/u301101/Doktorarbeit/CNN/models/cv/24_02_2023_14_00_52/conv_level_0_kfold_6_date_24_02_2023_14_00_52/logs/conv_level_0_kfold_6_date_24_02_2023_14_00_52/plugins/profile/2023_02_24_14_09_01/l10556.lvt.dkrz.de.trace.json.gz
+2023-02-24 14:09:01.870648: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: /work/uo1075/u301101/Doktorarbeit/CNN/models/cv/24_02_2023_14_00_52/conv_level_0_kfold_6_date_24_02_2023_14_00_52/logs/conv_level_0_kfold_6_date_24_02_2023_14_00_52/plugins/profile/2023_02_24_14_09_01
+
+2023-02-24 14:09:01.873863: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for memory_profile.json.gz to /work/uo1075/u301101/Doktorarbeit/CNN/models/cv/24_02_2023_14_00_52/conv_level_0_kfold_6_date_24_02_2023_14_00_52/logs/conv_level_0_kfold_6_date_24_02_2023_14_00_52/plugins/profile/2023_02_24_14_09_01/l10556.lvt.dkrz.de.memory_profile.json.gz
+2023-02-24 14:09:01.902981: I tensorflow/core/profiler/rpc/client/capture_profile.cc:251] Creating directory: /work/uo1075/u301101/Doktorarbeit/CNN/models/cv/24_02_2023_14_00_52/conv_level_0_kfold_6_date_24_02_2023_14_00_52/logs/conv_level_0_kfold_6_date_24_02_2023_14_00_52/plugins/profile/2023_02_24_14_09_01
+Dumped tool data for xplane.pb to /work/uo1075/u301101/Doktorarbeit/CNN/models/cv/24_02_2023_14_00_52/conv_level_0_kfold_6_date_24_02_2023_14_00_52/logs/conv_level_0_kfold_6_date_24_02_2023_14_00_52/plugins/profile/2023_02_24_14_09_01/l10556.lvt.dkrz.de.xplane.pb
+Dumped tool data for overview_page.pb to /work/uo1075/u301101/Doktorarbeit/CNN/models/cv/24_02_2023_14_00_52/conv_level_0_kfold_6_date_24_02_2023_14_00_52/logs/conv_level_0_kfold_6_date_24_02_2023_14_00_52/plugins/profile/2023_02_24_14_09_01/l10556.lvt.dkrz.de.overview_page.pb
+Dumped tool data for input_pipeline.pb to /work/uo1075/u301101/Doktorarbeit/CNN/models/cv/24_02_2023_14_00_52/conv_level_0_kfold_6_date_24_02_2023_14_00_52/logs/conv_level_0_kfold_6_date_24_02_2023_14_00_52/plugins/profile/2023_02_24_14_09_01/l10556.lvt.dkrz.de.input_pipeline.pb
+Dumped tool data for tensorflow_stats.pb to /work/uo1075/u301101/Doktorarbeit/CNN/models/cv/24_02_2023_14_00_52/conv_level_0_kfold_6_date_24_02_2023_14_00_52/logs/conv_level_0_kfold_6_date_24_02_2023_14_00_52/plugins/profile/2023_02_24_14_09_01/l10556.lvt.dkrz.de.tensorflow_stats.pb
+Dumped tool data for kernel_stats.pb to /work/uo1075/u301101/Doktorarbeit/CNN/models/cv/24_02_2023_14_00_52/conv_level_0_kfold_6_date_24_02_2023_14_00_52/logs/conv_level_0_kfold_6_date_24_02_2023_14_00_52/plugins/profile/2023_02_24_14_09_01/l10556.lvt.dkrz.de.kernel_stats.pb
+
+[NbConvertApp] Writing 135552 bytes to cv_conv_model_lev_0_kfold_6.nbconvert.ipynb

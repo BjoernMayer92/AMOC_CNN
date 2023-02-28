@@ -1,0 +1,32 @@
+
+********************************************************************************
+*                                                                              *
+*  This is the automated job summary provided by DKRZ.                         *
+*  If you encounter problems, need assistance or have any suggestion, please   *
+*  write an email to                                                           *
+*                                                                              *
+*  --  support@dkrz.de --                                                      *
+*                                                                              *
+*                       We hope you enjoyed the DKRZ supercomputer LEVANTE ... *
+*
+* JobID            : 3956991
+* JobName          : cv_conv_model_lev_0_kfold_6.ipynb                 
+* Account          : uo1075
+* User             : u301101 (100141), u300 (32013)                    
+* Partition        : compute
+* QOS              : normal
+* Nodelist         : l10556 (1)                                                
+* Submit date      : 2023-02-24T14:03:10
+* Start time       : 2023-02-24T14:08:37
+* End time         : 2023-02-24T18:32:49
+* Elapsed time     : 04:24:12 (Timelimit=08:00:00)                     
+* Command          : (null)
+* WorkDir          : /work/uo1075/u301101/Doktorarbeit/CNN/src/02_run_models/cv/
+*                    conv_models/24_02_2023_14_00_52
+*
+* StepID | JobName      NodeHours    MaxRSS [Byte] (@task)
+* ------------------------------------------------------------------------------
+* batch  | batch              4.4
+* extern | extern             4.4                2416K (0)
+* ------------------------------------------------------------------------------
+
