@@ -12,7 +12,7 @@ out_dir = "./linear_models/{}".format(datetime_string)
 if not os.path.exists(out_dir):
     os.makedirs(out_dir)
     
-jupyter_filestem = "cv_linear_model"
+jupyter_filestem = "linear_model"
 for lev_index in lev_index_list:
     for kfold_index in kfold_index_list:
         inp_filename = jupyter_filestem+".ipynb"
