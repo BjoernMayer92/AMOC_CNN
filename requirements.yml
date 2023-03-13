@@ -4,6 +4,7 @@ channels:
   - conda-forge
   - pytorch
 dependencies:
+  - pip
   - pip:
     - -e . 
     - zennit
@@ -11,6 +12,8 @@ dependencies:
     - innvestigate
     - torchsummary
   - pre-commit
+  - graphviz
+  - pydot
   - setuptools
   - pytest
   - cookiecutter
